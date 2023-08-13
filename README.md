@@ -12,7 +12,6 @@ Here You Can See Some Images of My Project :-
 
 ![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/85ba4c82-6099-4180-84bc-db431c895ac0)
 ![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/16227734-6ef8-4445-8d9b-35647ec4fab0)
-![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/aacc34eb-77a5-4352-8807-b9142ed81d7d)
 ![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/2f7fb47a-4e9d-4b0b-a892-f0f7565c5771)
 ![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/65d7556e-1bee-4173-9521-55b570be16b0)
 ![image](https://github.com/ShivamMaheshwari04/CodeClauseInternship_LandingPage/assets/118978290/e846556d-cfa8-47f4-b42d-36b847d89e90)
