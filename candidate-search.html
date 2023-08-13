@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Candidate Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      flex-basis: 150px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .form-group select,
+    .form-group input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .candidate-list {
+      margin-top: 30px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+    }
+
+    .candidate-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+
+    .candidate-item h3 {
+      margin: 0;
+    }
+
+    .candidate-item p {
+      margin: 5px 0 0;
+    }
+
+    .btn-style {
+      background-color: green;
+      border: none;
+      margin: 10px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .btn-style:hover {
+      background-color: rgb(23, 215, 23);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Candidate Search</h2>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <select id="location">
+        <option value="">All</option>
+        <option value="New York">New York</option>
+        <option value="London">London</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="India">India</option>
+        <option value="Australia">Australia</option>
+        <option value="United States">United States</option>
+        <option value="Dubai">Dubai</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="job-role">Job Role:</label>
+      <select id="job-role">
+        <option value="">All</option>
+        <option value="Developer">Developer</option>
+        <option value="Designer">Designer</option>
+        <option value="Project Manager">Project Manager</option>
+        <option value="UI/UX Designer">UI/UX Designer</option>
+        <option value="Web Developer">Web Developer</option>
+        <option value="Data Scientist">Data Scientist</option>
+      </select>
+    </div>
+    <button id="search-button" class="btn-style">Search</button>
+
+    <div class="candidate-list" id="candidate-list"></div>
+  </div>
+
+  <script>
+    var candidates = [
+      {
+        name: "John Doe",
+        location: "New York",
+        jobRole: "Developer"
+      },
+      {
+        name: "Lucky Tomar",
+        location: "London",
+        jobRole: "Designer"
+      },
+      {
+        name: "Anshit Sankhala",
+        location: "Tokyo",
+        jobRole: "Project Manager"
+      },
+      {
+        name: "Sanskar Jain",
+        location: "New York",
+        jobRole: "Developer"
+      },
+      {
+        name: "Varun Kate",
+        location: "London",
+        jobRole: "Project Manager"
+      },
+      {
+        name: "Shivam Maheshwari",
+        location: "India",
+        jobRole: "Web Developer"
+      },
+      {
+        name: "Rudra Maheshwari",
+        location: "India",
+        jobRole: "Data Scientist"
+      },
+      {
+        name: "Shivam Sharma",
+        location: "London",
+        jobRole: "Web Developer"
+      },
+      {
+        name: "Olivia Wilson",
+        location: "Tokyo",
+        jobRole: "Designer"
+      }
+    ];
+
+    function displayCandidates(candidates) {
+      var candidateList = document.getElementById("candidate-list");
+      candidateList.innerHTML = "";
+
+      if (candidates.length === 0) {
+        var noCandidatesMessage = document.createElement("p");
+        noCandidatesMessage.textContent = "No candidates found.";
+        candidateList.appendChild(noCandidatesMessage);
+      } else {
+        candidates.forEach(function (candidate) {
+          var candidateItem = document.createElement("div");
+          candidateItem.classList.add("candidate-item");
+
+          var candidateName = document.createElement("h3");
+          candidateName.textContent = candidate.name;
+          candidateItem.appendChild(candidateName);
+
+          var candidateLocation = document.createElement("p");
+          candidateLocation.textContent = "Location: " + candidate.location;
+          candidateItem.appendChild(candidateLocation);
+
+          var candidateJobRole = document.createElement("p");
+          candidateJobRole.textContent = "Job Role: " + candidate.jobRole;
+          candidateItem.appendChild(candidateJobRole);
+
+          candidateList.appendChild(candidateItem);
+        });
+      }
+    }
+
+    document.getElementById("search-button").addEventListener("click", function () {
+      var locationFilter = document.getElementById("location").value;
+      var jobRoleFilter = document.getElementById("job-role").value;
+
+      var filteredCandidates = candidates.filter(function (candidate) {
+        if (locationFilter && locationFilter !== candidate.location) {
+          return false;
+        }
+
+        if (jobRoleFilter && jobRoleFilter !== candidate.jobRole) {
+          return false;
+        }
+
+        return true;
+      });
+
+      displayCandidates(filteredCandidates);
+    });
+  </script>
+</body>
+
+</html>
